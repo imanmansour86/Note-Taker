@@ -1,14 +1,11 @@
 //create the server
 const express = require("express");
 var path = require("path");
-const fs = require("fs");
-const util = require("util");
-// Promise version of fs.readFile
-const readFromFile = util.promisify(fs.readFile);
+const { readFromFile, readAndAppend } = require("Develop//helper/fsUtils");
 
 //configure the app to use express and port
+const PORT = process.env.port || 3001;
 const app = express();
-const PORT = 3001;
 
 //set express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
@@ -25,6 +22,23 @@ app.get("/notes", (req, res) => {
 
 app.get("/api/notes", (req, res) => {
   readFromFile("Develop/db/db.json").then((data) => res.json(JSON.parse(data)));
+});
+
+app.post("/api/notes", (req, res) => {
+  console.log("request here is", req.body);
+
+  const { title, text } = req.body;
+
+  if (req.body) {
+    const newNote = {
+      title,
+      text,
+    };
+    readAndAppend(newNote, "Develop/db/db.json");
+    res.json("New notes added successfully");
+  } else {
+    res.error("Error adding notes");
+  }
 });
 
 //configure app to listen on specified port above
