@@ -9,7 +9,7 @@
 ## Description
 
 In this application, we modified starter code to create an application called Note Taker that can be used to write and save notes. This application uses Express.js backend and saves/retrieves note data from a JSON file.
-The application is deployed Heroku.
+The application is deployed to Heroku.
 
 ## Table of Contents
 
@@ -56,13 +56,13 @@ Returns the index.html file
 
 GET /api/notes
 
-Reads the db.jso file and return all saved notes as JSON
+Reads the db.jso file and returns all saved notes as JSON
 
 ![main](Develop/public/images/get-apinotes.png)
 
 POST /api/notes
 
-Receives a new note and add it to the db.json file, and then return the new note to the client
+Receives a new note and add it to the db.json file, and then returns the new note to the client. Each new added note has unique id when it's saved, this is done by using [npm UUID](https://www.npmjs.com/package/uuid) package
 
 ![main](Develop/public/images/post.png)
 
