@@ -79,5 +79,5 @@ app.get("*", (req, res) => {
 
 //configure app to listen on specified port above
 app.listen(PORT, () => {
-  console.log(`App is listening at http://localhost:${PORT}`);
+  console.log("App listening on PORT " + PORT);
 });
