@@ -6,7 +6,7 @@
 
 # Note-Taker
 
-[Deployed Link on Herkou](https://note-takev1.herokuapp.com/)
+## [Deployed Link on Herkou](https://note-takev1.herokuapp.com/)
 
 ## Description
 
@@ -16,6 +16,7 @@ The application is deployed to Heroku.
 ## Table of Contents
 
 - [Note-Taker](#note-taker)
+  - [Deployed Link on Herkou](#deployed-link-on-herkou)
   - [Description](#description)
   - [Table of Contents](#table-of-contents)
   - [Installation](#installation)
@@ -48,7 +49,7 @@ GET /notes
 
 Returns the notes.html file
 
-![main](Develop/public/images/landing.png)
+![main](Develop/public/images/notes.png)
 
 GET \*
 
