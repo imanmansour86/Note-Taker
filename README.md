@@ -6,6 +6,8 @@
 
 # Note-Taker
 
+[Deployed Link on Herkou](https://note-takev1.herokuapp.com/)
+
 ## Description
 
 In this application, we modified starter code to create an application called Note Taker that can be used to write and save notes. This application uses Express.js backend and saves/retrieves note data from a JSON file.
