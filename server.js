@@ -45,6 +45,10 @@ app.post("/api/notes", (req, res) => {
   }
 });
 
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "Develop/public/index.html"));
+});
+
 //configure app to listen on specified port above
 app.listen(PORT, () => {
   console.log(`App is listening at http://localhost:${PORT}`);
