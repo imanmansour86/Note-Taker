@@ -54,15 +54,10 @@ app.delete("/api/notes/:id", (req, res) => {
   console.log("request to delete id here is", req.params.id);
 
   //read from file to see all data
-  fs.readFile("Develop/db/db.json", "utf8", (err, jsonString) => {
-    if (err) {
-      console.log("File read failed:", err);
-      return;
-    }
-    console.log("File data:", jsonString);
-    //map over array to find the index that matches req.params.id
 
+  readFromFile("Develop/db/db.json").then((jsonString) => {
     const allData = JSON.parse(jsonString); //parse the data to array format
+    console.log("allData", allData);
     var indexToRemove = allData
       .map(function (item) {
         return item.id;
@@ -78,6 +73,7 @@ app.delete("/api/notes/:id", (req, res) => {
     console.log("result is", result);
 
     writeToFile("Develop/db/db.json", allData);
+    res.json("Delete done successfully");
   });
 });
 
