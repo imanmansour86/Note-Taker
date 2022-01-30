@@ -6,7 +6,6 @@ const {
   readAndAppend,
   writeToFile,
 } = require("./Develop/helper/fsUtils.js");
-const fs = require("fs");
 
 const { v4: uuid } = require("uuid");
 
@@ -51,10 +50,7 @@ app.post("/api/notes", (req, res) => {
 });
 
 app.delete("/api/notes/:id", (req, res) => {
-  console.log("request to delete id here is", req.params.id);
-
   //read from file to see all data
-
   readFromFile("Develop/db/db.json").then((jsonString) => {
     const allData = JSON.parse(jsonString); //parse the data to array format
     console.log("allData", allData);
@@ -68,7 +64,7 @@ app.delete("/api/notes/:id", (req, res) => {
       res.statusCode = 404;
       return res.send("Error 404: No id found");
     }
-    //   remove the object with that id
+    // remove the object with that id
     var result = allData.splice(indexToRemove, 1);
     console.log("result is", result);
 
