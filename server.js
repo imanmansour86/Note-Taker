@@ -10,7 +10,7 @@ const {
 const { v4: uuid } = require("uuid");
 
 //configure the app to use express and port
-const PORT = process.env.port || 3000;
+const PORT = process.env.PORT || 3000;
 const app = express();
 
 //set express app to handle data parsing
